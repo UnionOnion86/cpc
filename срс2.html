@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        .triangle-left {
+        width: 0;
+        height: 0;
+        border-top: 70px solid transparent;
+        border-bottom: 70px solid transparent;
+        border-right: 100px solid #6E18C0;
+        }
+    </style>
+</head>
+<body>
+    <a href="start.html"><div class="triangle-left" style="float: right;"></div></a>
+    <img src="adventuretime.png" style="width: 200px; transition: 0.2s; position: absolute; margin-top: 200px; margin-left: 200px" class="time" id="myImage2">
+    <img src="bird.png" style="width: 200px; transition: 0.2s; position: absolute; margin-top:200px; margin-left: 500px" class="bluebird" id="myImage1">
+    
+    <img src="arrowright.png" style="width: 100px; position: absolute; top: 500px; left:300px" class="arrowright">
+    <img src="arrowleft.png" style="width: 100px; position: absolute; top: 500px; left:100px" class="arrowleft">
+    <img src="arrowtop.png" style="width: 100px; position: absolute; top: 400px; left:200px" class="arrowtop">
+    <img src="arrowbottom.png" style="width: 100px; position: absolute; top: 500px; left:200px" class="arrowbottom">
+    
+    <img src="arrowright.png" style="width: 100px; position: absolute; top: 500px; left:600px" class="arrowBright">
+    <img src="arrowleft.png" style="width: 100px; position: absolute; top: 500px; left:400px" class="arrowBleft">
+    <img src="arrowtop.png" style="width: 100px; position: absolute; top: 400px; left:500px" class="arrowBtop">
+    <img src="arrowbottom.png" style="width: 100px; position: absolute; top: 500px; left:500px" class="arrowBbottom">
+<script>
+
+    var finn = document.querySelector('.time')
+    var btnR = document.querySelector('.arrowright')
+    var btnL = document.querySelector('.arrowleft')
+    var btnT = document.querySelector('.arrowtop')
+    var btnB = document.querySelector('.arrowbottom')
+    var numX = 200
+    var numY = 200
+    var numBX = 500
+    var numBY = 200
+    var box = document.querySelector('.finnhp')
+    var hero = {name: 'human-finn', hp: 100}
+    var box = document.querySelector('.birdhp')
+    var villain = {name:'birdkek',hp: 100}
+
+    document.onkeydown = function (event){
+        console.log(event)
+        if(event.code == 'KeyD'){
+            console.log('Клавиша D')
+            numX = numX + 200
+            finn.style.marginLeft = numX + 'px'
+        }
+        if(event.code == 'KeyA'){
+            console.log('Клавиша А')
+            numX = numX - 200
+            finn.style.marginLeft = numX + 'px'
+        }
+        if(event.code == 'KeyW'){
+            console.log('Клавиша А')
+            numY = numY - 200
+            finn.style.marginTop = numY + 'px'
+        }
+        if(event.code == 'KeyS'){
+            console.log('Клавиша А')
+            numY = numY + 200
+            finn.style.marginTop = numY + 'px'
+        }
+        if(event.code == 'Space'){
+            if(villain.hp > 10){
+            villain.hp = villain.hp - 15
+            console.log('Финн нанес урон! Здоровье Птицы: ', villain.hp)
+            }
+            else {
+                console.log('Птица побеждена')
+                document.getElementById("myImage1").src="rip.jpg";
+                document.getElementById("myImage2").style.display = 'none';
+            }
+        }
+
+        if(event.code == 'ArrowRight'){
+            console.log('Клавиша вправо')
+            numBX = numBX + 200
+            bird.style.marginLeft = numBX + 'px'
+        }
+        if(event.code == 'ArrowLeft'){
+            console.log('Клавиша влево')
+            numBX = numBX - 200
+            bird.style.marginLeft = numBX + 'px'
+        }
+        if(event.code == 'ArrowUp'){
+            console.log('Клавиша наверх')
+            numBY = numBY - 200
+            bird.style.marginTop = numBY + 'px'
+        }
+        if(event.code == 'ArrowDown'){
+            console.log('Клавиша вниз')
+            numBY = numBY + 200
+            bird.style.marginTop = numBY + 'px'
+        }
+        if(event.code == 'ControlRight'){
+            if(hero.hp > 10){
+            hero.hp = hero.hp - 10
+            console.log('Птица нанесла урон! Здоровье Финна: ', hero.hp)
+            }
+            else {
+                console.log('game over')
+                document.getElementById("myImage2").src="rip.jpg";
+                document.getElementById("myImage1").style.display = 'none';
+            }
+        }
+    }
+    btnR.onmousedown = function (){
+        numX = numX + 200
+        finn.style.marginLeft = numX + 'px'
+    }
+    btnL.onmousedown = function (){
+        numX = numX - 200
+        finn.style.marginLeft = numX + 'px'
+    }
+    btnT.onmousedown = function (){
+        numY = numY - 200
+        finn.style.marginTop = numY + 'px'
+    }
+    btnB.onmousedown = function (){
+        numY = numY + 200
+        finn.style.marginTop = numY + 'px'
+    }
+    
+    var bird = document.querySelector('.bluebird')
+    var btnBR = document.querySelector('.arrowBright')
+    var btnBL = document.querySelector('.arrowBleft')
+    var btnBT = document.querySelector('.arrowBtop')
+    var btnBB = document.querySelector('.arrowBbottom')
+    
+    btnBR.onmousedown = function (){
+        numBX = numBX + 200
+        bird.style.marginLeft = numBX + 'px'
+    }
+    btnBL.onmousedown = function (){
+        numBX = numBX - 200
+        bird.style.marginLeft = numBX + 'px'
+    }
+    btnBT.onmousedown = function (){
+        numBY = numBY - 200
+        bird.style.marginTop = numBY + 'px'
+    }
+    btnBB.onmousedown = function (){
+        numBY = numBY + 200
+        bird.style.marginTop = numBY + 'px'
+    }
+</script>
+</body>
+</html>
